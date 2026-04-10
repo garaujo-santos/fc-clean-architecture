@@ -19,6 +19,6 @@ export default class UpdateProductUseCase {
       id: product.id,
       name: product.name,
       price: product.price
-    }
+    };
   }
 }

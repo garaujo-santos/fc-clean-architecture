@@ -9,8 +9,8 @@ const MockRepository = () => {
     findAll: jest.fn(),
     find: jest.fn().mockReturnValue(Promise.resolve(product)),
     update: jest.fn(),
-  }
-}
+  };
+};
 
 describe("UpdateProductUseCase unit tests", () => {
   it("should update a product with valid input", async () => {
@@ -21,13 +21,13 @@ describe("UpdateProductUseCase unit tests", () => {
       id: product.id,
       name: "Product 1 Updated",
       price: 20,
-    }
+    };
 
     const output = {
       id: product.id,
       name: "Product 1 Updated",
       price: 20,
-    }
+    };
 
     const result = await usecase.execute(input);
 

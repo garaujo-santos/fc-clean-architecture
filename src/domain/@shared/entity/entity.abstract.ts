@@ -10,4 +10,8 @@ export default abstract class Entity {
   get id(): string {
     return this._id;
   }
+
+  cleanErrors(): void {
+    this.notification.clearErrors();
+  }
 }

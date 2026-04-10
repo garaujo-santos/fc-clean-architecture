@@ -1,3 +1,4 @@
+import NotificationError from "../../@shared/notification/notification.error";
 import Product from "./product";
 
 describe("Product unit tests", () => {
@@ -17,6 +18,28 @@ describe("Product unit tests", () => {
     expect(() => {
       const product = new Product("123", "Name", -1);
     }).toThrowError("Price must be greater than zero");
+  });
+
+  it("should contain multiple validation errors in notification", () => {
+    expect.assertions(4);
+
+    try {
+      const product = new Product("123", "", -1);
+    } catch (error) {
+      const notificationError = error as NotificationError;
+
+      expect(notificationError).toBeInstanceOf(NotificationError);
+      expect(notificationError.errors).toHaveLength(2);
+      expect(notificationError.errors).toEqual(
+        expect.arrayContaining([
+          { context: "product", message: "Name is required" },
+          { context: "product", message: "Price must be greater than zero" },
+        ])
+      );
+      expect(notificationError.message).toBe(
+        "product: Name is required,product: Price must be greater than zero"
+      );
+    }
   });
 
   it("should change name", () => {

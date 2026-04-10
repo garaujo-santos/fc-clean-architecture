@@ -63,3 +63,13 @@ npm run test:e2e
 ```bash
 npm test -- src/infrastructure/api/__tests__/product.e2e.spec.ts
 ```
+
+## Desafio 3 - Notification Pattern na Entidade Product
+
+### Rodar os testes do desafio
+
+```bash
+npm test -- src/domain/product/entity/product.spec.ts
+```
+
+Esse teste cobre as validacoes da entidade Product, incluindo o cenario de multiplos erros na notificacao.

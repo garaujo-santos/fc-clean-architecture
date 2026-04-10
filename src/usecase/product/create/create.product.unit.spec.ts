@@ -9,7 +9,6 @@ const MockRepository = () => {
   };
 }
 
-
 describe("CreateProductUseCase unit tests", () => {
   it("should create a product with valid input", async () => {
     const productRepository = MockRepository();
@@ -53,5 +52,16 @@ describe("CreateProductUseCase unit tests", () => {
     await expect(productCreateUseCase.execute(input)).rejects.toThrow("Price must be greater than zero");
   });
 
+  it("should throw multiple errors when name is missing and price is less than zero", async () => {
+    const productRepository = MockRepository();
+    const productCreateUseCase = new CreateProductUseCase(productRepository);
 
+    const input = {
+      name: "",
+      price: -1,
+    };
+
+    await expect(productCreateUseCase.execute(input)).rejects.toThrow("Name is required");
+    await expect(productCreateUseCase.execute(input)).rejects.toThrow("Price must be greater than zero");
+  });
 });

@@ -70,4 +70,17 @@ describe("CreateProductUseCase integration tests", () => {
 
     await expect(usecase.execute(input)).rejects.toThrow("Price must be greater than zero");
   });
+
+  it("should throw multiple errors when name is missing and price is less than zero", async () => {
+    const productRepository = new ProductRepository();
+    const usecase = new CreateProductUseCase(productRepository);
+
+    const input: InputCreateProductDto = {
+      name: "",
+      price: -1,
+    };
+
+    await expect(usecase.execute(input)).rejects.toThrow("Name is required");
+    await expect(usecase.execute(input)).rejects.toThrow("Price must be greater than zero");
+  });
 });
