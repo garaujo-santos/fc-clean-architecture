@@ -12,8 +12,8 @@ const MockRepository = () => {
   }
 }
 
-describe("Unit test for update product use case", () => {
-  it("should update a product", async () => {
+describe("UpdateProductUseCase unit tests", () => {
+  it("should update a product with valid input", async () => {
     const repository = MockRepository();
     const usecase = new UpdateProductUseCase(repository);
 

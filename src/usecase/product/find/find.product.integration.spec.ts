@@ -4,7 +4,7 @@ import ProductModel from "../../../infrastructure/product/repository/sequelize/p
 import ProductRepository from "../../../infrastructure/product/repository/sequelize/product.repository";
 import FindProductUseCase from "./find.product.usecase";
 
-describe("Test find product use case", () => {
+describe("FindProductUseCase integration tests", () => {
   let sequelize: Sequelize;
 
   beforeEach(async () => {
@@ -23,7 +23,7 @@ describe("Test find product use case", () => {
     await sequelize.close();
   });
 
-  it("should find a product", async () => {
+  it("should return a persisted product by id", async () => {
     const productRepository = new ProductRepository();
     const usecase = new FindProductUseCase(productRepository);
 

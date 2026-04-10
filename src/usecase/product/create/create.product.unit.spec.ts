@@ -10,8 +10,8 @@ const MockRepository = () => {
 }
 
 
-describe("Unit test create product use case", () => {
-  it("should create a product", async () => {
+describe("CreateProductUseCase unit tests", () => {
+  it("should create a product with valid input", async () => {
     const productRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(productRepository);
 
@@ -29,7 +29,7 @@ describe("Unit test create product use case", () => {
     });
   });
 
-  it("should thrown an error when name is missing", async () => {
+  it("should throw an error when name is missing", async () => {
     const productRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(productRepository);
 
@@ -41,7 +41,7 @@ describe("Unit test create product use case", () => {
     await expect(productCreateUseCase.execute(input)).rejects.toThrow("Name is required");
   });
 
-  it("should thrown an error when price is less than zero", async () => {
+  it("should throw an error when price is less than zero", async () => {
     const productRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(productRepository);
 

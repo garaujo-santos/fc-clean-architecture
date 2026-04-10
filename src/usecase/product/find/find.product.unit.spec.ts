@@ -16,8 +16,8 @@ const MockRepository = () => {
 }
 
 
-describe("Unit test for product find use case", () => {
-  it("should find a product", async () => {
+describe("FindProductUseCase unit tests", () => {
+  it("should return a product by id", async () => {
     const productRepository = MockRepository();
 
     const usecase = new FindProductUseCase(productRepository);
@@ -26,7 +26,7 @@ describe("Unit test for product find use case", () => {
     expect(result).toEqual(product);
   });
 
-  it("should not find a product", async () => {
+  it("should throw when product does not exist", async () => {
     const productRepository = MockRepository();
     productRepository.find.mockImplementation(() => {
       throw new Error("Product not found");
