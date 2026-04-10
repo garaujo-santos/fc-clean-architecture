@@ -73,3 +73,29 @@ npm test -- src/domain/product/entity/product.spec.ts
 ```
 
 Esse teste cobre as validacoes da entidade Product, incluindo o cenario de multiplos erros na notificacao.
+
+## Desafio 4 - Alteração da validação e testes de regressão
+
+### Subir API
+
+```bash
+npm run dev
+```
+
+Rotas disponiveis:
+
+- `GET /customer`
+- `POST /customer`
+- `GET /product`
+
+### Rodar testes E2E da API
+
+```bash
+npm run test:e2e
+```
+
+### Rodar todos os testes
+
+```bash
+npm test
+```
