@@ -1,6 +1,8 @@
 # FC Clean Architecture
 
-## Rodar testes
+Repositorio unico para os desafios do modulo, mantendo evolucao incremental no mesmo projeto.
+
+## Setup
 
 ### Instalar dependencias
 
@@ -8,25 +10,21 @@
 npm install
 ```
 
-### Executar todos os testes
+## Desafio 1 - Use Cases de Product
+
+### Rodar todos os testes
 
 ```bash
 npm test
 ```
 
-### Executar cobertura de testes
+### Rodar cobertura de testes
 
 ```bash
 npm run test:coverage
 ```
 
-### Executar um arquivo especifico
-
-```bash
-npm test -- src/usecase/product/create/create.product.integration.spec.ts
-```
-
-### Executar apenas os testes de product usecases
+### Rodar apenas testes de Product Use Cases
 
 ```bash
 npm test -- \
@@ -38,4 +36,30 @@ npm test -- \
   src/usecase/product/list/list.product.integration.spec.ts \
   src/usecase/product/update/update.product.unit.spec.ts \
   src/usecase/product/update/update.product.integration.spec.ts
+```
+
+## Desafio 2 - Endpoint GET /product + E2E
+
+### Subir API
+
+```bash
+npm run dev
+```
+
+Rotas disponiveis:
+
+- `GET /customer`
+- `POST /customer`
+- `GET /product`
+
+### Rodar testes E2E da API
+
+```bash
+npm run test:e2e
+```
+
+### Rodar apenas o E2E de Product
+
+```bash
+npm test -- src/infrastructure/api/__tests__/product.e2e.spec.ts
 ```
