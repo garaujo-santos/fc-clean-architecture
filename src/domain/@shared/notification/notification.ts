@@ -6,10 +6,6 @@ export type NotificationErrorProps = {
 export default class Notification {
   private errors: NotificationErrorProps[] = [];
 
-  clearErrors() {
-    this.errors = [];
-  }
-
   addError(error: NotificationErrorProps) {
     this.errors.push(error);
   }
